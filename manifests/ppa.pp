@@ -4,8 +4,12 @@ define apt::ppa (
   $ppa    ='ppa'
 ) {
 
-  apt::key {$key:
-    ensure => $ensure,
+  if defined(Apt::Key[$key]){
+    alert("Key $key is already defined")
+  }else{
+    apt::key {$key:
+      ensure => $ensure,
+    }
   }
 
   $ppa_name = inline_template("<%=
