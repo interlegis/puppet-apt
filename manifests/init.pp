@@ -1,3 +1,5 @@
+#init.pp
+
 class apt {
 
   include apt::params

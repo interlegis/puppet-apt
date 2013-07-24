@@ -1,7 +1,7 @@
 define apt::sources_list (
   $ensure  = present,
   $source  = false,
-  $content = false
+  $content = '' 
 ) {
 
   if $source {
